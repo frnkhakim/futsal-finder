@@ -19,17 +19,17 @@ export default function Home({ searchParams }: HomeProps) {
   const filtered = area ? courts.filter((c) => c.area === area) : courts;
 
   return (
-    <div className="flex flex-1 flex-col bg-zinc-50 dark:bg-black">
+    <div className="flex flex-1 flex-col bg-gradient-to-b from-white to-emerald-50/40">
       <div className="mx-auto w-full max-w-6xl px-6 py-12">
-        <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-white/10 dark:bg-zinc-950">
+        <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            <p className="text-sm font-medium text-zinc-600">
               Johannesburg
             </p>
-            <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-5xl">
+            <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
               Find futsal courts. Send enquiries. Fill more slots.
             </h1>
-            <p className="mt-4 text-pretty text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            <p className="mt-4 text-pretty text-lg leading-8 text-zinc-600">
               Discover courts, view facilities, and message venues instantly via WhatsApp.
             </p>
           </div>
@@ -40,13 +40,13 @@ export default function Home({ searchParams }: HomeProps) {
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-end"
           >
             <label className="flex flex-col gap-2">
-              <span className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
+              <span className="text-sm font-medium text-zinc-700">
                 Search by area
               </span>
               <select
                 name="area"
                 defaultValue={area}
-                className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-3 text-sm text-zinc-950 shadow-sm outline-none focus:border-zinc-400 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-50"
+                className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-3 text-sm text-zinc-950 shadow-sm outline-none focus:border-emerald-300"
               >
                 <option value="">All areas</option>
                 {areas.map((a) => (
@@ -67,7 +67,7 @@ export default function Home({ searchParams }: HomeProps) {
             {area ? (
               <Link
                 href="/"
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-emerald-200 bg-white px-5 text-sm font-medium text-emerald-800 transition hover:bg-emerald-50 dark:border-emerald-500/30 dark:bg-zinc-950 dark:text-emerald-300 dark:hover:bg-emerald-500/10"
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-emerald-200 bg-white px-5 text-sm font-medium text-emerald-800 transition hover:bg-emerald-50"
               >
                 Clear
               </Link>
@@ -78,10 +78,10 @@ export default function Home({ searchParams }: HomeProps) {
         <section className="mt-10">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+              <h2 className="text-2xl font-semibold tracking-tight text-zinc-950">
                 Featured courts
               </h2>
-              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="mt-1 text-sm text-zinc-600">
                 High-demand venues players love.
               </p>
             </div>
@@ -95,10 +95,10 @@ export default function Home({ searchParams }: HomeProps) {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+          <h2 className="text-2xl font-semibold tracking-tight text-zinc-950">
             {area ? `Courts in ${area}` : "Available courts"}
           </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="mt-1 text-sm text-zinc-600">
             Compare price, facilities, and location.
           </p>
 

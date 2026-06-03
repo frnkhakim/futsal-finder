@@ -9,8 +9,8 @@ export default function CourtCard({ court }: { court: Court }) {
   );
 
   return (
-    <div className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-950">
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+    <div className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100">
         <img
           src={court.image}
           alt={court.name}
@@ -23,10 +23,10 @@ export default function CourtCard({ court }: { court: Court }) {
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h3 className="truncate text-lg font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+            <h3 className="truncate text-lg font-semibold tracking-tight text-zinc-950">
               {court.name}
             </h3>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="mt-1 text-sm text-zinc-600">
               {court.area} • R{court.price}/hour
             </p>
           </div>
@@ -41,7 +41,7 @@ export default function CourtCard({ court }: { court: Court }) {
           {court.facilities.slice(0, 3).map((f) => (
             <span
               key={f}
-              className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs text-zinc-700 dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-300"
+              className="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs text-zinc-700"
             >
               {f}
             </span>
@@ -59,7 +59,7 @@ export default function CourtCard({ court }: { court: Court }) {
             href={`https://wa.me/?text=${whatsappText}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-10 items-center justify-center rounded-xl border border-emerald-200 bg-white px-4 text-sm font-medium text-emerald-800 transition hover:bg-emerald-50 dark:border-emerald-500/30 dark:bg-zinc-950 dark:text-emerald-300 dark:hover:bg-emerald-500/10"
+            className="inline-flex h-10 items-center justify-center rounded-xl border border-emerald-200 bg-white px-4 text-sm font-medium text-emerald-800 transition hover:bg-emerald-50"
           >
             WhatsApp
           </a>

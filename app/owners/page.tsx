@@ -1,12 +1,12 @@
 export default function OwnersPage() {
   return (
-    <div className="flex flex-1 flex-col bg-zinc-50 dark:bg-black">
+    <div className="flex flex-1 flex-col bg-gradient-to-b from-white to-emerald-50/40">
       <div className="mx-auto w-full max-w-4xl px-6 py-12">
-        <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm dark:border-white/10 dark:bg-zinc-950">
-          <h1 className="text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        <section className="rounded-3xl border border-zinc-200 bg-white p-10 shadow-sm">
+          <h1 className="text-4xl font-semibold tracking-tight text-zinc-950">
             List your futsal court
           </h1>
-          <p className="mt-4 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-lg leading-8 text-zinc-600">
             Reach thousands of players looking for courts in Johannesburg.
           </p>
 
@@ -19,7 +19,7 @@ export default function OwnersPage() {
             ].map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-sm font-medium text-zinc-800 dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-200"
+                className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-sm font-medium text-zinc-800"
               >
                 ✓ {item}
               </div>
@@ -39,7 +39,7 @@ export default function OwnersPage() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 flex-1 items-center justify-center rounded-xl border border-emerald-200 bg-white px-5 text-sm font-medium text-emerald-800 transition hover:bg-emerald-50 dark:border-emerald-500/30 dark:bg-zinc-950 dark:text-emerald-300 dark:hover:bg-emerald-500/10"
+              className="inline-flex h-11 flex-1 items-center justify-center rounded-xl border border-emerald-200 bg-white px-5 text-sm font-medium text-emerald-800 transition hover:bg-emerald-50"
             >
               WhatsApp
             </a>
