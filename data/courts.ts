@@ -2,6 +2,7 @@ export type Court = {
   id: string;
   name: string;
   area: string;
+  categories: string[];
   price: number;
   image: string;
   facilities: string[];
@@ -38,6 +39,7 @@ export const courts: Court[] = [
     id: "soweto-futsal-centre",
     name: "Soweto Futsal Centre",
     area: "Soweto",
+    categories: ["5-a-side", "Indoor", "League Ready"],
     price: 350,
     image: COURT_IMAGE_PLACEHOLDER,
     facilities: ["Indoor", "Floodlights", "Parking"],
@@ -50,6 +52,7 @@ export const courts: Court[] = [
     id: "sandton-futsal-arena",
     name: "Sandton Futsal Arena",
     area: "Sandton",
+    categories: ["Premium", "Training", "Indoor"],
     price: 450,
     image: COURT_IMAGE_PLACEHOLDER,
     facilities: ["Indoor", "Changing Rooms", "Parking"],
@@ -62,6 +65,7 @@ export const courts: Court[] = [
     id: "midrand-sports-hub",
     name: "Midrand Sports Hub",
     area: "Midrand",
+    categories: ["Outdoor", "Social Games", "Affordable"],
     price: 400,
     image: COURT_IMAGE_PLACEHOLDER,
     facilities: ["Outdoor", "Floodlights"],

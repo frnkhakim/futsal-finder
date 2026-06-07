@@ -1,19 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffaf5;
+  --foreground: #26211f;
+  --surface: #fffdf9;
+  --surface-soft: #fff4e7;
+  --line: #efdccd;
+  --brand: #e16e3d;
+  --brand-deep: #bf4f24;
+  --accent: #1e8f7a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), "Segoe UI", sans-serif;
+}
+
+.page-glow {
+  background:
+    radial-gradient(circle at 7% 8%, #f4cab4 0%, transparent 36%),
+    radial-gradient(circle at 93% 12%, #dff3eb 0%, transparent 34%),
+    radial-gradient(circle at 50% 90%, #ffe8d8 0%, transparent 45%),
+    var(--background);
+}
+
+.hero-panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(150deg, #fff8ef 0%, #fffdf9 46%, #f0faf7 100%);
+  box-shadow: 0 20px 50px rgba(77, 45, 29, 0.09);
+}
+
+.rise-in {
+  animation: rise-in 0.55s ease-out both;
+}
+
+.rise-in.delay-1 {
+  animation-delay: 80ms;
+}
+
+.rise-in.delay-2 {
+  animation-delay: 160ms;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
