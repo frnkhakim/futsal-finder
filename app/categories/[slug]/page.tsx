@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import CourtCard from "@/components/CourtCard";
-import { courts } from "@/data/courts";
+import CrecheCard from "@/components/CrecheCard";
+import { creches } from "@/data/creches";
 import { fromCategorySlug, getAllCategories, toCategorySlug } from "@/lib/categories";
 
 type CategoryPageProps = {
@@ -25,12 +25,16 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
   const area = (resolvedSearchParams?.area ?? "").trim();
   const allAreas = Array.from(
-    new Set(courts.filter((court) => court.categories.includes(category)).map((court) => court.area))
+    new Set(
+      creches
+        .filter((creche) => creche.categories.includes(category))
+        .map((creche) => creche.area)
+    )
   ).sort((a, b) => a.localeCompare(b));
 
-  const categoryCourts = courts.filter((court) => {
-    const categoryMatch = court.categories.includes(category);
-    const areaMatch = area ? court.area === area : true;
+  const categoryCreches = creches.filter((creche) => {
+    const categoryMatch = creche.categories.includes(category);
+    const areaMatch = area ? creche.area === area : true;
 
     return categoryMatch && areaMatch;
   });
@@ -42,13 +46,13 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
       <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-14">
         <section className="hero-panel rounded-[2rem] p-6 sm:p-10">
           <p className="inline-flex items-center rounded-full border border-[#efdccd] bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8f6552]">
-            Futsal category
+            Preschool category
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#2b1f19] sm:text-5xl">
             {category}
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-8 text-[#5e4b40] sm:text-lg">
-            {categoryCourts.length} courts currently listed.
+            {categoryCreches.length} creches currently listed.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2">
@@ -79,8 +83,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         </section>
 
         <section className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {categoryCourts.map((court) => (
-            <CourtCard key={court.id} court={court} />
+          {categoryCreches.map((creche) => (
+            <CrecheCard key={creche.id} creche={creche} />
           ))}
         </section>
 

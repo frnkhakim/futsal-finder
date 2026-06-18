@@ -1,19 +1,19 @@
 import Link from "next/link";
 
-import { courts } from "@/data/courts";
+import { creches } from "@/data/creches";
 import { getAllCategories, toCategorySlug } from "@/lib/categories";
 
 export default function CategoriesPage() {
   const categories = getAllCategories();
   const categoryCards = categories.map((category) => {
-    const matchingCourts = courts.filter((court) => court.categories.includes(category));
+    const matchingCreches = creches.filter((creche) => creche.categories.includes(category));
 
     return {
       name: category,
       slug: toCategorySlug(category),
-      count: matchingCourts.length,
-      areas: Array.from(new Set(matchingCourts.map((court) => court.area))).length,
-      minPrice: Math.min(...matchingCourts.map((court) => court.price)),
+      count: matchingCreches.length,
+      areas: Array.from(new Set(matchingCreches.map((creche) => creche.area))).length,
+      minPrice: Math.min(...matchingCreches.map((creche) => creche.price)),
     };
   });
 
@@ -25,10 +25,10 @@ export default function CategoriesPage() {
             Browse directory
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#2b1f19] sm:text-5xl">
-            Futsal categories
+            Preschool categories
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-8 text-[#5e4b40] sm:text-lg">
-            Explore courts by match type, venue setup, and player goals. Choose a category and discover the right place to play.
+            Explore creches by programme type, age focus, and learning approach. Choose a category to discover suitable options.
           </p>
         </section>
 
@@ -41,10 +41,10 @@ export default function CategoriesPage() {
             >
               <p className="text-lg font-bold text-[#2b1f19]">{item.name}</p>
               <p className="mt-2 text-sm text-[#6a5143]">
-                {item.count} courts • {item.areas} areas
+                {item.count} creches • {item.areas} areas
               </p>
               <p className="mt-4 inline-flex rounded-full bg-[#fff2e6] px-3 py-1 text-xs font-semibold text-[#8b593f]">
-                From R{item.minPrice}/hour
+                From R{item.minPrice}/month
               </p>
             </Link>
           ))}

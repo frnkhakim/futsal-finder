@@ -14,8 +14,8 @@ const headingFont = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Futsal Finder",
-  description: "Find futsal courts and send enquiries in Johannesburg.",
+  title: "Creche Finder",
+  description: "Find trusted creches and preschools in Johannesburg.",
 };
 
 export default function RootLayout({

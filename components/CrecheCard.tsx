@@ -1,24 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-import type { Court } from "@/data/courts";
+import type { Creche } from "@/data/creches";
 
-export default function CourtCard({ court }: { court: Court }) {
-  const categoryPreview = court.categories.slice(0, 2);
-  const facilityPreview = court.facilities
+export default function CrecheCard({ creche }: { creche: Creche }) {
+  const categoryPreview = creche.categories.slice(0, 2);
+  const facilityPreview = creche.facilities
     .filter((facility) => !categoryPreview.includes(facility))
     .slice(0, 3);
 
   const whatsappText = encodeURIComponent(
-    `Hi! I'm interested in booking ${court.name} in ${court.area}. What slots are available?`
+    `Hi! I'm interested in enrolling my child at ${creche.name} in ${creche.area}. Please share availability and fees.`
   );
 
   return (
     <div className="group overflow-hidden rounded-[1.4rem] border border-[#efdccd] bg-[#fffdf9] shadow-[0_12px_30px_rgba(71,40,24,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_34px_rgba(71,40,24,0.12)]">
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#f3e8dc]">
         <img
-          src={court.image}
-          alt={court.name}
+          src={creche.image}
+          alt={creche.name}
           className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
           loading="lazy"
           decoding="async"
@@ -29,13 +29,13 @@ export default function CourtCard({ court }: { court: Court }) {
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <h3 className="truncate text-lg font-bold tracking-tight text-[#2b1f19]">
-              {court.name}
+              {creche.name}
             </h3>
             <p className="mt-1 text-sm font-medium text-[#6a5143]">
-              {court.area} • R{court.price}/hour
+              {creche.area} • From R{creche.price}/month
             </p>
           </div>
-          {court.featured ? (
+          {creche.featured ? (
             <span className="shrink-0 rounded-full bg-[#ffe3ba] px-2.5 py-1 text-xs font-bold text-[#875117]">
               Featured
             </span>
@@ -51,22 +51,22 @@ export default function CourtCard({ court }: { court: Court }) {
               {category}
             </span>
           ))}
-          {facilityPreview.map((f) => (
+          {facilityPreview.map((facility) => (
             <span
-              key={f}
+              key={facility}
               className="rounded-full border border-[#eddccc] bg-[#fff5ea] px-2.5 py-1 text-xs font-medium text-[#6d5446]"
             >
-              {f}
+              {facility}
             </span>
           ))}
         </div>
 
         <div className="mt-5 flex items-center gap-3">
           <Link
-            href={`/courts/${court.id}`}
+            href={`/creches/${creche.id}`}
             className="inline-flex h-10 flex-1 items-center justify-center rounded-xl bg-[#e16e3d] px-4 text-sm font-semibold text-white transition hover:bg-[#bf4f24]"
           >
-            View details
+            View school profile
           </Link>
           <a
             href={`https://wa.me/?text=${whatsappText}`}

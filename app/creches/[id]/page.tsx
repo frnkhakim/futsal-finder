@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { courts } from "@/data/courts";
+import { creches } from "@/data/creches";
 
-export default function CourtPage({
+export default function CrechePage({
   params,
 }: {
   params: Promise<{
@@ -13,27 +13,27 @@ export default function CourtPage({
 }) {
   const [resolvedParams] = [params];
 
-  return <CourtPageContent paramsPromise={resolvedParams} />;
+  return <CrechePageContent paramsPromise={resolvedParams} />;
 }
 
-async function CourtPageContent({
+async function CrechePageContent({
   paramsPromise,
 }: {
   paramsPromise: Promise<{ id: string }>;
 }) {
   const { id } = await paramsPromise;
-  const court = courts.find((c) => c.id === id);
+  const creche = creches.find((item) => item.id === id);
 
-  if (!court) {
+  if (!creche) {
     notFound();
   }
 
-  const mapQuery = encodeURIComponent(court.mapQuery ?? `${court.name}, ${court.area}`);
+  const mapQuery = encodeURIComponent(creche.mapQuery ?? `${creche.name}, ${creche.area}`);
   const embedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
   const whatsappText = encodeURIComponent(
-    `Hi! I'm interested in booking ${court.name} in ${court.area}. What slots are available?`
+    `Hi! I'm interested in enrolling my child at ${creche.name} in ${creche.area}. Please share availability and fees.`
   );
 
   return (
@@ -44,7 +44,7 @@ async function CourtPageContent({
             href="/"
             className="text-sm font-semibold text-[#6c5345] hover:text-[#bf4f24]"
           >
-            ← Back to courts
+            ← Back to creches
           </Link>
         </div>
 
@@ -52,8 +52,8 @@ async function CourtPageContent({
           <section className="overflow-hidden rounded-3xl border border-[#efdccd] bg-[#fffdf9] shadow-[0_14px_34px_rgba(71,40,24,0.08)]">
             <div className="relative aspect-[16/10] w-full bg-[#f3e8dc]">
               <img
-                src={court.image}
-                alt={court.name}
+                src={creche.image}
+                alt={creche.name}
                 className="h-full w-full object-cover"
                 loading="eager"
                 decoding="async"
@@ -61,21 +61,21 @@ async function CourtPageContent({
             </div>
             <div className="p-6">
               <h1 className="text-3xl font-bold tracking-tight text-[#2b1f19]">
-                {court.name}
+                {creche.name}
               </h1>
               <p className="mt-2 text-sm font-medium text-[#6a5143]">
-                {court.area} • R{court.price}/hour
+                {creche.area} • From R{creche.price}/month
               </p>
 
               <p className="mt-5 text-base leading-7 text-[#544339]">
-                {court.description}
+                {creche.description}
               </p>
 
               <h2 className="mt-7 text-base font-bold text-[#2b1f19]">
                 Facilities
               </h2>
               <div className="mt-3 flex flex-wrap gap-2">
-                {court.facilities.map((item) => (
+                {creche.facilities.map((item) => (
                   <span
                     key={item}
                     className="rounded-full border border-[#eddccc] bg-[#fff5ea] px-3 py-1 text-sm font-medium text-[#6c5244]"
@@ -92,13 +92,13 @@ async function CourtPageContent({
                   rel="noopener noreferrer"
                   className="inline-flex h-11 flex-1 items-center justify-center rounded-xl bg-[#e16e3d] px-5 text-sm font-semibold text-white transition hover:bg-[#bf4f24]"
                 >
-                  Send enquiry on WhatsApp
+                  Send enrolment enquiry
                 </a>
                 <Link
                   href="/owners"
                   className="inline-flex h-11 items-center justify-center rounded-xl border border-[#cde5db] bg-[#effaf5] px-5 text-sm font-semibold text-[#1f7664] transition hover:bg-[#dff4eb]"
                 >
-                  Own a court?
+                  Own a creche?
                 </Link>
               </div>
             </div>
@@ -111,12 +111,12 @@ async function CourtPageContent({
                   Location
                 </h2>
                 <p className="mt-2 text-sm text-[#6a5143]">
-                  {court.address ?? `${court.area}, Johannesburg`}
+                  {creche.address ?? `${creche.area}, Johannesburg`}
                 </p>
               </div>
               <div className="aspect-[16/10] w-full bg-[#f3e8dc]">
                 <iframe
-                  title={`Map for ${court.name}`}
+                  title={`Map for ${creche.name}`}
                   src={embedUrl}
                   className="h-full w-full"
                   loading="lazy"
@@ -140,8 +140,8 @@ async function CourtPageContent({
                 Tip for owners
               </h2>
               <p className="mt-2 text-sm leading-6 text-[#5e4b40]">
-                List your venue to get discovered, receive enquiries, and (soon) accept online
-                bookings.
+                List your creche to get discovered by parents, receive enrolment enquiries, and
+                soon manage admissions online.
               </p>
             </section>
           </aside>
